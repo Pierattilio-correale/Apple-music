@@ -16,6 +16,7 @@ const Artist = function () {
   const [isError, setIserror] = useState(false);
 
   const getMusic = () => {
+    setIsloading(true);
     const url = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${params.artistid}`;
     fetch(url)
       .then((response) => {
@@ -45,7 +46,11 @@ const Artist = function () {
 
   return (
     <>
-      {isLoading && <Spinner variant="danger" animation="border"></Spinner>}
+      {isLoading && (
+        <div className="d-flex justify-content-center">
+          <Spinner variant="danger" animation="border"></Spinner>
+        </div>
+      )}
       {isError && (
         <Alert variant="danger">Errore nel cercare la tua canzone</Alert>
       )}
