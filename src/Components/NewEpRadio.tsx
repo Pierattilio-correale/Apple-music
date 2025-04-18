@@ -1,7 +1,7 @@
 import { CardText, Col, Container, Row } from "react-bootstrap";
 
 import Card from "react-bootstrap/Card";
-import my1card from "../assets/img/1c.png";
+import my1card from "../assets/img/2f.png";
 import my2card from "../assets/img/2a.png";
 import my3card from "../assets/img/2b.png";
 import my4card from "../assets/img/2c.png";
@@ -34,7 +34,7 @@ function NewEpRadio() {
                 Michael Bublè & Carly Pearce
               </CardText>
             </Col>
-            <Col className="d-none">
+            <Col className="d-none d-lg-block">
               <Card>
                 <Card.Img variant="top" src={my1card} />
               </Card>
@@ -42,7 +42,7 @@ function NewEpRadio() {
                 Stephan Moccio : The Zane Lowe Interview
               </CardText>
             </Col>
-            <Col className="d-none">
+            <Col className="d-none d-lg-block">
               <Card>
                 <Card.Img variant="top" src={my5card} />
               </Card>

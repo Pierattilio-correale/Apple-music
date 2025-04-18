@@ -1,151 +1,42 @@
 import { Container, Row, Col } from "react-bootstrap";
 
-const ButtonZone = function () {
+const ButtonZone = () => {
+  const cards: string[] = [
+    "Esplora per genere",
+    "Decenni",
+    "Attività e stati d'animo",
+    "Worldwide",
+    "Classifiche",
+    "Audio Spaziale",
+    "Video Musicali",
+    "Nuovi Artisti",
+    "Hit del passato",
+  ];
+
   return (
     <>
       <div className="mt-5">
         <h4 className="text-white ms-4">Altro da esplorare</h4>
       </div>
       <Container>
-        <Row>
-          <Col className="mb-2">
-            <Row
-              style={{ width: 400 }}
-              className="p-2 rounded-4 ms-2 rowEffect"
+        <Row className="gx-4 gy-4">
+          {cards.map((label: string, index: number) => (
+            <Col
+              key={index}
+              className="col-12 col-md-6 col-lg-4 d-flex justify-content-center"
             >
-              <Col className="col-10">
-                <p className="colorerosso">Esplora per genere</p>
-              </Col>
-              <Col className="col-2">
+              <div className="custom-card rowEffect d-flex justify-content-between align-items-center">
+                <p className="colorerosso mb-0">{label}</p>
                 <a href="#" className="colorerosso text-decoration-none">
                   {">"}
                 </a>
-              </Col>
-            </Row>
-          </Col>
-          <Col className="mb-2">
-            <Row
-              style={{ width: 400 }}
-              className="p-2 rounded-4 ms-2 rowEffect"
-            >
-              <Col className="col-10">
-                <p className="colorerosso">Decenni</p>
-              </Col>
-              <Col className="col-2">
-                <a href="#" className="colorerosso text-decoration-none">
-                  {">"}
-                </a>
-              </Col>
-            </Row>
-          </Col>
-          <Col className="mb-2">
-            <Row
-              style={{ width: 400 }}
-              className="p-2 rounded-4 ms-2 rowEffect"
-            >
-              <Col className="col-10">
-                <p className="colorerosso">Attività e stati d'animo</p>
-              </Col>
-              <Col className="col-2">
-                <a href="#" className="colorerosso text-decoration-none">
-                  {">"}
-                </a>
-              </Col>
-            </Row>
-          </Col>
-          <Col className="mb-2">
-            <Row
-              style={{ width: 400 }}
-              className="p-2 rounded-4 ms-2 rowEffect"
-            >
-              <Col className="col-10">
-                <p className="colorerosso">Worldwide</p>
-              </Col>
-              <Col className="col-2">
-                <a href="#" className="colorerosso text-decoration-none">
-                  {">"}
-                </a>
-              </Col>
-            </Row>
-          </Col>
-          <Col className="mb-2">
-            <Row
-              style={{ width: 400 }}
-              className="p-2 rounded-4 ms-2 rowEffect"
-            >
-              <Col className="col-10">
-                <p className="colorerosso">Classifiche</p>
-              </Col>
-              <Col className="col-2">
-                <a href="#" className="colorerosso text-decoration-none">
-                  {">"}
-                </a>
-              </Col>
-            </Row>
-          </Col>
-          <Col className="mb-2">
-            <Row
-              style={{ width: 400 }}
-              className="p-2 rounded-4 ms-2 rowEffect"
-            >
-              <Col className="col-10">
-                <p className="colorerosso">Audio Spaziale</p>
-              </Col>
-              <Col className="col-2">
-                <a href="#" className="colorerosso text-decoration-none">
-                  {">"}
-                </a>
-              </Col>
-            </Row>
-          </Col>
-          <Col className="mb-2">
-            <Row
-              style={{ width: 400 }}
-              className="p-2 rounded-4 ms-2 rowEffect"
-            >
-              <Col className="col-10">
-                <p className="colorerosso">Video Musicali</p>
-              </Col>
-              <Col className="col-2">
-                <a href="#" className="colorerosso text-decoration-none">
-                  {">"}
-                </a>
-              </Col>
-            </Row>
-          </Col>
-          <Col className="mb-2">
-            <Row
-              style={{ width: 400 }}
-              className="p-2 rounded-4 ms-2 rowEffect"
-            >
-              <Col className="col-10">
-                <p className="colorerosso">Nuovi Artisti</p>
-              </Col>
-              <Col className="col-2">
-                <a href="#" className="colorerosso text-decoration-none">
-                  {">"}
-                </a>
-              </Col>
-            </Row>
-          </Col>
-          <Col className="">
-            <Row
-              style={{ width: 400 }}
-              className="p-2 rounded-4 ms-2 rowEffect"
-            >
-              <Col className="col-10">
-                <p className="colorerosso">Hit del passato</p>
-              </Col>
-              <Col className="col-2">
-                <a href="#" className="colorerosso text-decoration-none">
-                  {">"}
-                </a>
-              </Col>
-            </Row>
-          </Col>
+              </div>
+            </Col>
+          ))}
         </Row>
       </Container>
     </>
   );
 };
+
 export default ButtonZone;

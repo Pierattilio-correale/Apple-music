@@ -8,20 +8,15 @@ function MyBigCards() {
   return (
     <>
       <Container className="mb-2">
-        <Row>
-          <Col>
+        <Row className="g-4">
+          <Col className="col-6">
             <Card>
-              <Card.Img
-                variant="top"
-                src={First}
-                className=""
-                style={{ width: 350 }}
-              />
+              <Card.Img variant="top" src={First} className="dynamic" />
             </Card>
           </Col>
-          <Col className="sparizione">
+          <Col className=" col-6">
             <Card>
-              <Card.Img variant="top" src={Second} style={{ width: 350 }} />
+              <Card.Img className="dynamic" variant="top" src={Second} />
             </Card>
           </Col>
         </Row>

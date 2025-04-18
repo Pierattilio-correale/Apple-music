@@ -5,7 +5,7 @@ function MyNavbarPhone() {
   return (
     <Navbar
       expand="lg"
-      className=" d-xl-none"
+      className=" d-lg-none"
       style={{ backgroundColor: "#2E2E2E" }}
     >
       <Container>

@@ -1,4 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
+import MusicPlayer from "./MusicPlayer";
 
 const MyFooter = function () {
   return (
@@ -59,6 +60,7 @@ const MyFooter = function () {
           </Container>
         </div>
       </div>
+      <MusicPlayer />
     </>
   );
 };
