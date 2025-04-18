@@ -15,6 +15,7 @@ function NewsFetch() {
   const [isLoading, setIsloading] = useState(false);
   const [isError, setIserror] = useState(false);
   const getMusic = () => {
+    setIsloading(true);
     const url =
       "https://striveschool-api.herokuapp.com/api/deezer/search?q=queen";
     fetch(url)
@@ -52,7 +53,7 @@ function NewsFetch() {
             )}
             {data?.data.slice(0, 6).map((music) => {
               return (
-                <Col key={music.id} className="col-4 d-lg-none">
+                <Col key={music.id} className="col-4 ">
                   <Card>
                     <Card.Img variant="top" src={music.album.cover_medium} />
                   </Card>

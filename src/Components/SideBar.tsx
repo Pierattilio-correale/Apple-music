@@ -13,6 +13,7 @@ const SideBar = function () {
   const [isLoading, setIsloading] = useState(false);
   const [isError, setIserror] = useState(false);
   const getMusic = () => {
+    setIsloading(true);
     const url = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${searchbar}`;
     fetch(url)
       .then((response) => {
