@@ -3,7 +3,7 @@ import { TrackListResponse } from "../Types";
 import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, Spinner, Alert } from "react-bootstrap";
 
 type ArtistParams = {
   artistid: string;
@@ -12,6 +12,8 @@ type ArtistParams = {
 const Artist = function () {
   const params = useParams<ArtistParams>();
   const [data, setData] = useState<TrackListResponse | null>(null);
+  const [isLoading, setIsloading] = useState(false);
+  const [isError, setIserror] = useState(false);
 
   const getMusic = () => {
     const url = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${params.artistid}`;
@@ -26,9 +28,12 @@ const Artist = function () {
       .then((data) => {
         console.log(data);
         setData(data);
+        setIsloading(false);
       })
       .catch((err) => {
         console.log("Errore nella fetch", err);
+        setIsloading(false);
+        setIserror(true);
       });
   };
 
@@ -40,6 +45,10 @@ const Artist = function () {
 
   return (
     <>
+      {isLoading && <Spinner variant="danger" animation="border"></Spinner>}
+      {isError && (
+        <Alert variant="danger">Errore nel cercare la tua canzone</Alert>
+      )}
       <h3 className="text-white text-center">{params.artistid}</h3>
       <div className="d-flex flex-wrap gap-3 mt-4 justify-content-center">
         {data?.data?.[0]?.artist.picture_big && (

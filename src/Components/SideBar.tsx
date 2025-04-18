@@ -1,4 +1,4 @@
-import { Col, Row, Container, Navbar } from "react-bootstrap";
+import { Col, Row, Container, Navbar, Spinner, Alert } from "react-bootstrap";
 
 import Card from "react-bootstrap/Card";
 
@@ -10,6 +10,8 @@ import { Link } from "react-router-dom";
 const SideBar = function () {
   const [data, setData] = useState<TrackListResponse | null>(null);
   const [searchbar, setSearchbar] = useState<string>("");
+  const [isLoading, setIsloading] = useState(false);
+  const [isError, setIserror] = useState(false);
   const getMusic = () => {
     const url = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${searchbar}`;
     fetch(url)
@@ -22,9 +24,12 @@ const SideBar = function () {
       })
       .then((data) => {
         setData(data);
+        setIsloading(false);
       })
       .catch((err) => {
         console.log("Errore nella fetch", err);
+        setIserror(true);
+        setIsloading(false);
       });
   };
   useEffect(() => {
@@ -56,6 +61,14 @@ const SideBar = function () {
                 />
                 <i className="bi bi-search search-icon-left"></i>
               </div>
+              {isLoading && (
+                <Spinner variant="danger" animation="border"></Spinner>
+              )}
+              {isError && (
+                <Alert variant="danger">
+                  Errore nel cercare la tua canzone
+                </Alert>
+              )}
               {data?.data.slice(0, 4).map((music) => (
                 <Col key={music.id} className="mt-3">
                   <Card className="bg-dark">

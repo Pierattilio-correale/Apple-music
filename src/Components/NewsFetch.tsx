@@ -1,9 +1,19 @@
 import { useEffect, useState } from "react";
-import { CardText, Col, Container, Row, Card } from "react-bootstrap";
+import {
+  CardText,
+  Col,
+  Container,
+  Row,
+  Card,
+  Spinner,
+  Alert,
+} from "react-bootstrap";
 import { TrackListResponse } from "../Types";
 
 function NewsFetch() {
   const [data, setData] = useState<TrackListResponse | null>(null);
+  const [isLoading, setIsloading] = useState(false);
+  const [isError, setIserror] = useState(false);
   const getMusic = () => {
     const url =
       "https://striveschool-api.herokuapp.com/api/deezer/search?q=queen";
@@ -17,9 +27,12 @@ function NewsFetch() {
       })
       .then((data) => {
         setData(data);
+        setIsloading(false);
       })
       .catch((err) => {
         console.log("Errore nella fetch", err);
+        setIsloading(false);
+        setIserror(true);
       });
   };
   useEffect(() => {
@@ -31,6 +44,12 @@ function NewsFetch() {
         <h4 className="ms-4 text-white">Nuove Uscite {">"}</h4>
         <Container>
           <Row className="g-4">
+            {isLoading && (
+              <Spinner variant="danger" animation="border"></Spinner>
+            )}
+            {isError && (
+              <Alert variant="danger">Errore nel cercare la tua canzone</Alert>
+            )}
             {data?.data.slice(0, 6).map((music) => {
               return (
                 <Col key={music.id} className="col-4 d-lg-none">
