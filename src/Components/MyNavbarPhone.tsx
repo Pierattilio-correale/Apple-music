@@ -1,6 +1,7 @@
 import { Container, Navbar, Nav } from "react-bootstrap";
 
 import AppleMusic from "../assets/img/music.svg";
+import { Link } from "react-router-dom";
 function MyNavbarPhone() {
   return (
     <Navbar
@@ -33,9 +34,15 @@ function MyNavbarPhone() {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Novità</Nav.Link>
-            <Nav.Link href="#link">Radio</Nav.Link>
+            <Link className="nav-link text-white" to="/">
+              Home
+            </Link>
+            <Nav.Link href="#link" className="text-white">
+              Novità
+            </Nav.Link>
+            <Nav.Link href="#link " className="text-white">
+              Radio
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

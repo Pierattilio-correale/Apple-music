@@ -54,8 +54,8 @@ const Artist = function () {
         <Container>
           <Row className="g-4">
             {data?.data.map((music) => (
-              <Col xs={12} md={6} lg={3}>
-                <Card key={music.id} className="d-flex flex-column h-100">
+              <Col xs={12} md={6} lg={3} key={music.id}>
+                <Card className="d-flex flex-column h-100">
                   <Card.Img variant="top" src={music.album.cover_medium} />
                   <Card.Body className="bg-black text-white">
                     <Card.Title>{music.title}</Card.Title>
